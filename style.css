@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Fruktur&family=Poppins:wght@500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 350px;
+    height: 190px;
+    position: relative;
+    background-color: #333;
+    transition: 0.5s;
+}
+
+.card:hover {
+    height: 450px;
+}
+
+.card .lines {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+.card .lines::before {
+    content: '';
+    width: 600px;
+    height: 100px;
+    background: linear-gradient(transparent, #45f3ff, #45f3ff, #45f3ff, transparent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.card .lines::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #292929;
+}
+
+.card .imgBx {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    overflow: hidden;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.card .imgBx::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    background: linear-gradient(transparent, #ff3c76, #ff3c76, #ff3c76, transparent);
+    top: 50%;
+    left: 50%;
+    animation: animate-reverse 4s linear infinite;
+}
+
+@keyframes animate-reverse {
+    from {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+.card .imgBx::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: #292929;
+}
+
+.card .imgBx img {
+    position: absolute;
+    z-index: 999;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    filter: grayscale(1);
+}
+
+.card:hover .imgBx {
+    width: 250px;
+    height: 250px;
+}
+
+.card:hover img {
+    filter: grayscale(0);
+
+}
+
+.card .content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.card .content .details {
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s;
+    transform: translateY(120px);
+}
+
+.card:hover .content .details {
+    transform: translateY(0px);
+}
+
+.card .content .details h2 {
+    font-size: 1.45em;
+    font-weight: 800;
+    color: #45f3ff;
+    line-height: 1.25em;
+}
+
+.card .content .details h2 span {
+    font-size: 0.75em;
+    font-weight: 600;
+    color: #fff;
+}
+
+.card .content .details .data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.card .content .details h3 {
+    font-size: 1em;
+    font-weight: 600;
+    color: #45f3ff;
+    line-height: 1.2em;
+}
+
+.card .content .details h3 span {
+    font-size: 0.85em;
+    font-weight: 400;
+    color: #fff;
+}
+
+.card .content .actionBtn {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card .content .actionBtn button {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    color: #292929;
+    font-weight: 700;
+    background-color: #45f3ff;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.card .content .actionBtn button:nth-child(2) {
+    background-color: #fff;
+}
+.card .content .actionBtn button:hover{
+    opacity: 0.9;
+}
